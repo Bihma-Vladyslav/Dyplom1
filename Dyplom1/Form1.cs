@@ -58,6 +58,7 @@ namespace Dyplom1
         {
             try
             {
+                //тут трабл якщо натискаєш на пусту клітинку
                 textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
