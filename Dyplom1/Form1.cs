@@ -23,8 +23,7 @@ namespace Dyplom1
         DBManager db;
         private void button7_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
-            f2.ShowDialog();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -105,6 +104,12 @@ namespace Dyplom1
 
             db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text);
             db.selectall("Structure_Academic_Discipline", dataGridView1);
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }

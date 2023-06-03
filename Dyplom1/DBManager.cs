@@ -77,6 +77,7 @@ namespace Dyplom1
             catch (Exception ex)
             {
                 throw ex;
+                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
             }
         }
         public List<List<Object>> selectall(String tablename)
@@ -122,13 +123,17 @@ namespace Dyplom1
         {
             try
             {
-                command.CommandText = "insert into " + tablename + "(" + String.Join(",", fields) + ") values (" + String.Join(",", values) + ")";
+                command.CommandText = "insert into "+tablename+"("+String.Join(",", fields) +") values("+ 
+                    String.Join(",",values)+")";
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
             }
             catch (Exception ex)
             {
+                //видає логічну помилку десь біля коми (стара помилка)
+                //тепер видає іншу помилку: Cannot set CommandText while a DataReader is active
+
                 throw ex;
             }
         }
