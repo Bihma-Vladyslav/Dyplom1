@@ -72,6 +72,7 @@ namespace Dyplom1
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
+                datareader.Close();
                 connection.Close();
             }
             catch (Exception ex)
@@ -97,6 +98,7 @@ namespace Dyplom1
                     }
                     res.Add(row);
                 }
+                datareader.Close();
                 connection.Close();
                 return res;
             }
@@ -123,14 +125,32 @@ namespace Dyplom1
         {
             try
             {
-                command.CommandText = "insert into "+tablename+"("+String.Join(",", fields) +") values("+ 
-                    String.Join(",",values)+")";
                 connection.Open();
+               // SQLiteDataReader datareader = command.ExecuteReader();
+               // datareader.Close();
+
+                List<string> nonEmptyFields = new List<string>();
+                List<string> nonEmptyValues = new List<string>();
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(values[i]))
+                    {
+                        nonEmptyFields.Add(fields[i]);
+                        nonEmptyValues.Add(values[i]);
+                    }
+                }
+
+                command.CommandText = "insert into "+tablename+"("+String.Join(",", nonEmptyFields) +") values("+ 
+                    String.Join(",", nonEmptyValues)+")";
+                MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
                 connection.Close();
+               // }
             }
             catch (Exception ex)
             {
+                //System.InvalidOperationException: 'Cannot set CommandText while a DataReader is active'
                 //видає логічну помилку десь біля коми (стара помилка)
                 //тепер видає іншу помилку: Cannot set CommandText while a DataReader is active
 
@@ -141,6 +161,7 @@ namespace Dyplom1
         {
             try
             {
+                connection.Open();
                 if (cond != null)
                 {
                     command.CommandText = "delete from " + tablename + " where " + cond;
@@ -149,7 +170,7 @@ namespace Dyplom1
                 {
                     command.CommandText = "delete from " + tablename;
                 }
-                connection.Open();
+                
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -162,13 +183,28 @@ namespace Dyplom1
         {
             try
             {
-                command.CommandText = "update " + tablename + " set ";
-                for (int i = 0; i < fields.Length - 1 && i < values.Length - 1; i++)
-                {
-                    command.CommandText += fields[i] + " = " + values[i] + " , ";
-                }
-                command.CommandText += fields[fields.Length - 1] + " = " + values[values.Length - 1] + " where " + cond;
                 connection.Open();
+
+                List<string> nonEmptyFields = new List<string>();
+                List<string> nonEmptyValues = new List<string>();
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(values[i]))
+                    {
+                        nonEmptyFields.Add(fields[i]);
+                        nonEmptyValues.Add(values[i]);
+                    }
+                }
+
+                command.CommandText = "update " + tablename + " set ";
+                for (int i = 0; i < nonEmptyFields.Count - 1 && i < nonEmptyValues.Count - 1; i++)
+                {
+                    command.CommandText += nonEmptyFields[i] + " = " + nonEmptyValues[i] + " , ";
+                }
+                command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1] 
+                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where " + cond;
+               
                 command.ExecuteNonQuery();
                 connection.Close();
             }

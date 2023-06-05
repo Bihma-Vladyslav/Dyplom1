@@ -33,19 +33,7 @@ namespace Dyplom1
 
         private void button1_Click(object sender, EventArgs e)
         {
-          /*  var data = db.selectall("Structure_Academic_Discipline");
-            dataGridView1.Columns.Clear();
-            if (data != null)
-            {
-                for (int i = 0; i < data[0].Count; i++)
-                {
-                    dataGridView1.Columns.Add("col" + i.ToString(), "col" + i.ToString());
-                }
-                for (int i = 0; i < data[0].Count; i++)
-                {
-                    dataGridView1.Rows.Add(data[i].ToArray());
-                }
-            }*/
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -58,6 +46,7 @@ namespace Dyplom1
             try
             {
                 //тут трабл якщо натискаєш на пусту клітинку
+                //пов'язано скоріш за все, що перші чотири параметри не NULL повинні бути, а вони NULL
                 textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -90,7 +79,7 @@ namespace Dyplom1
 
         private void button10_Click(object sender, EventArgs e)
         {
-            db.delete("Structure_Academic_Discipline", "Num_Section=" + textBox1.Text);
+            db.delete("Structure_Academic_Discipline", "Num_Class=" + textBox2.Text);
             db.selectall("Structure_Academic_Discipline", dataGridView1);
         }
 
@@ -102,14 +91,234 @@ namespace Dyplom1
             textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text,
              "'" + textBox10.Text + "'", "'" + textBox11.Text + "'"};
 
-            db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text);
-            db.selectall("Structure_Academic_Discipline", dataGridView1);
+            if (textBox1.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox2.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox3.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox4.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox5.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox6.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox7.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox8.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox9.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox10.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            if (textBox11.Tag.ToString() == "1")
+            {
+                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
+                db.selectall("Structure_Academic_Discipline", dataGridView1);
+            }
+
+            textBox1.Tag = 0;
+            textBox2.Tag = 0;
+            textBox3.Tag = 0;
+            textBox4.Tag = 0;
+            textBox5.Tag = 0;
+            textBox6.Tag = 0;
+            textBox7.Tag = 0;
+            textBox8.Tag = 0;
+            textBox9.Tag = 0;
+            textBox10.Tag = 0;
+            textBox11.Tag = 0;
         }
 
         private void button7_Click_1(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Tag = 1;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.Tag = 1;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBox3.Tag = 1;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            textBox4.Tag = 1;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            textBox5.Tag = 1;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            textBox6.Tag = 1;
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Tag = 1;
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            textBox8.Tag = 1;
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            textBox9.Tag = 1;
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            textBox10.Tag = 1;
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            textBox11.Tag = 1;
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 1");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 2");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 3");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 4");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 5");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Разом за розділом (змістовим модулем) 6");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Усього годин");
+            listBox2.Items.Add("Total_Hours: ");
+            listBox2.Items.Add("Lecture_Hours: ");
+            listBox2.Items.Add("Workshop_Hours: ");
+            listBox2.Items.Add("Practical_Hours: ");
+            listBox2.Items.Add("Laboratory_Hours: ");
+            listBox2.Items.Add("IndepWorkStud_Hours: ");
         }
     }
 }
