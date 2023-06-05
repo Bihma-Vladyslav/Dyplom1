@@ -30,7 +30,7 @@ namespace Dyplom1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            db.selectall("Structure_Academic_Discipline", dataGridView1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace Dyplom1
 
         private void button8_Click(object sender, EventArgs e)
         {
-            db.selectall("Structure_Academic_Discipline", dataGridView1);
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

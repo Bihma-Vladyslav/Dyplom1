@@ -46,7 +46,6 @@ namespace Dyplom1
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -253,23 +252,13 @@ namespace Dyplom1
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(9, 456);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(60, 25);
-            this.button8.TabIndex = 34;
-            this.button8.Text = "SelectAll";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(9, 487);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(60, 25);
+            this.button9.Size = new System.Drawing.Size(76, 25);
             this.button9.TabIndex = 35;
-            this.button9.Text = "Insert";
+            this.button9.Text = "Додати";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -277,9 +266,9 @@ namespace Dyplom1
             // 
             this.button10.Location = new System.Drawing.Point(9, 515);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(60, 25);
+            this.button10.Size = new System.Drawing.Size(76, 25);
             this.button10.TabIndex = 36;
-            this.button10.Text = "Delete";
+            this.button10.Text = "Видалити";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -287,9 +276,9 @@ namespace Dyplom1
             // 
             this.button11.Location = new System.Drawing.Point(9, 546);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(60, 25);
+            this.button11.Size = new System.Drawing.Size(76, 25);
             this.button11.TabIndex = 37;
-            this.button11.Text = "Update";
+            this.button11.Text = "Оновити";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
@@ -561,7 +550,6 @@ namespace Dyplom1
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button7);
@@ -607,7 +595,6 @@ namespace Dyplom1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;

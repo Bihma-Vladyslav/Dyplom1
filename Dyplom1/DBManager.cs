@@ -127,6 +127,186 @@ namespace Dyplom1
                 throw ex;
             }
         }
+        //для семінару
+        public void selectall1(String tablename, DataGridView datagrid)
+        {
+            try
+            {
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                MessageBox.Show(command.CommandText);
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                fillgrid(datareader, datagrid);
+                datareader.Close();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
+            }
+        }
+        public List<List<Object>> selectall1(String tablename)
+        {
+            try
+            {
+                var res = new List<List<Object>>();
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    List<Object> row = new List<object>();
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        row.Add(datareader[i]);
+                    }
+                    res.Add(row);
+                }
+                datareader.Close();
+                connection.Close();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //для практичної
+        public void selectall2(String tablename, DataGridView datagrid)
+        {
+            try
+            {
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                MessageBox.Show(command.CommandText);
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                fillgrid(datareader, datagrid);
+                datareader.Close();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
+            }
+        }
+        public List<List<Object>> selectall2(String tablename)
+        {
+            try
+            {
+                var res = new List<List<Object>>();
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    List<Object> row = new List<object>();
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        row.Add(datareader[i]);
+                    }
+                    res.Add(row);
+                }
+                datareader.Close();
+                connection.Close();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //для лабораторної
+        public void selectall3(String tablename, DataGridView datagrid)
+        {
+            try
+            {
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                MessageBox.Show(command.CommandText);
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                fillgrid(datareader, datagrid);
+                datareader.Close();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
+            }
+        }
+        public List<List<Object>> selectall3(String tablename)
+        {
+            try
+            {
+                var res = new List<List<Object>>();
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    List<Object> row = new List<object>();
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        row.Add(datareader[i]);
+                    }
+                    res.Add(row);
+                }
+                datareader.Close();
+                connection.Close();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //для самостійної
+        public void selectall4(String tablename, DataGridView datagrid)
+        {
+            try
+            {
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                MessageBox.Show(command.CommandText);
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                fillgrid(datareader, datagrid);
+                datareader.Close();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
+            }
+        }
+        public List<List<Object>> selectall4(String tablename)
+        {
+            try
+            {
+                var res = new List<List<Object>>();
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                connection.Open();
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    List<Object> row = new List<object>();
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        row.Add(datareader[i]);
+                    }
+                    res.Add(row);
+                }
+                datareader.Close();
+                connection.Close();
+                return res;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void ExecSQl(String query)
         {
             try
@@ -146,8 +326,6 @@ namespace Dyplom1
             try
             {
                 connection.Open();
-               // SQLiteDataReader datareader = command.ExecuteReader();
-               // datareader.Close();
 
                 List<string> nonEmptyFields = new List<string>();
                 List<string> nonEmptyValues = new List<string>();
@@ -170,10 +348,6 @@ namespace Dyplom1
             }
             catch (Exception ex)
             {
-                //System.InvalidOperationException: 'Cannot set CommandText while a DataReader is active'
-                //видає логічну помилку десь біля коми (стара помилка)
-                //тепер видає іншу помилку: Cannot set CommandText while a DataReader is active
-
                 throw ex;
             }
         }
