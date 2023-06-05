@@ -68,7 +68,9 @@ namespace Dyplom1
                 };
                 connection.Close();
                 return res;*/
-                command.CommandText = "select * from " + tablename;
+                
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM Structure_Academic_Discipline " + tablename;
+                MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
@@ -86,7 +88,7 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "select * from " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM Structure_Academic_Discipline " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -101,6 +103,24 @@ namespace Dyplom1
                 datareader.Close();
                 connection.Close();
                 return res;
+                /*            int index;
+            try
+            {
+                
+                command.CommandText = "select \"Index\" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = " + section_ + " AND Num_Class = " + class_;
+                connection.Open();
+                SQLiteDataReader datareader1 = command.ExecuteReader();                
+                command.ExecuteNonQuery();
+                index = datareader1.GetInt32(0);
+                datareader1.Close();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                index = -1;
+                throw ex;
+            }*/
             }
             catch (Exception ex)
             {
@@ -202,9 +222,10 @@ namespace Dyplom1
                 {
                     command.CommandText += nonEmptyFields[i] + " = " + nonEmptyValues[i] + " , ";
                 }
-                command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1] 
-                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where " + cond;
-               
+                command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1]
+                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where \"Index\" = " + cond;
+                string tmp = command.CommandText;
+                MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -212,6 +233,112 @@ namespace Dyplom1
             {
                 throw ex;
             }
+        }
+        public void update(String tablename, String[] fields, String[] values, String sections, String class_)
+        {
+            string index = _getindex(tablename, sections, class_);
+            try
+            {
+                connection.Open();
+
+                List<string> nonEmptyFields = new List<string>();
+                List<string> nonEmptyValues = new List<string>();
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(values[i]))
+                    {
+                        nonEmptyFields.Add(fields[i]);
+                        nonEmptyValues.Add(values[i]);
+                    }
+                }
+
+                command.CommandText = "update " + tablename + " set ";
+                for (int i = 0; i < nonEmptyFields.Count - 1 && i < nonEmptyValues.Count - 1; i++)
+                {
+                    command.CommandText += nonEmptyFields[i] + " = " + nonEmptyValues[i] + " , ";
+                }
+                command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1]
+                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where \"Index\" = " + index;
+                string tmp = command.CommandText;
+                MessageBox.Show(command.CommandText);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void sum(String tablename, String[] fields, String[] values, String cond)
+        {
+            string tmp;
+            try
+            {
+                connection.Open();
+
+                List<string> nonEmptyFields = new List<string>();
+                List<string> nonEmptyValues = new List<string>();
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(values[i]))
+                    {
+                        nonEmptyFields.Add(fields[i]);
+                        nonEmptyValues.Add(values[i]);
+                    }
+                }
+
+                if (cond != null)
+                {
+                command.CommandText = "select sum(Total_Hours) from " + tablename + " where " + cond;
+                }
+                else
+                {
+                command.CommandText = "select sum(" + String.Join(",", nonEmptyFields) + ") from " + tablename;
+                    tmp = String.Join(",", nonEmptyFields);
+                }
+                MessageBox.Show(command.CommandText);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string _getindex(String tablename, string section_, string class_)
+        {
+            //ось так?
+            string index = "";
+            try
+            {
+
+                command.CommandText = "select \"Index\" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = " + section_ + " AND Num_Class = " + class_;
+                connection.Open();
+
+                SQLiteDataReader dr = command.ExecuteReader();
+                List<Object> value = new List<Object>(); 
+                while(dr.Read())
+                {
+                    for (int i = 0; i < dr.FieldCount; i++)
+                    {
+                        value.Add(dr[i]);
+                    }
+                }
+
+                index = value[0].ToString();
+                dr.Close();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            //SELECT "Index" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = 3 AND Num_Class = 22;
+            return index;
         }
     }
 }

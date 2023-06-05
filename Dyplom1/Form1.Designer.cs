@@ -73,13 +73,15 @@ namespace Dyplom1
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(269, 151);
+            this.label7.Location = new System.Drawing.Point(190, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(85, 13);
             this.label7.TabIndex = 33;
@@ -88,7 +90,7 @@ namespace Dyplom1
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(272, 167);
+            this.listBox2.Location = new System.Drawing.Point(193, 167);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(244, 160);
             this.listBox2.TabIndex = 32;
@@ -141,7 +143,7 @@ namespace Dyplom1
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(163, 292);
+            this.button6.Location = new System.Drawing.Point(104, 292);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 25);
             this.button6.TabIndex = 27;
@@ -163,7 +165,7 @@ namespace Dyplom1
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(163, 226);
+            this.button4.Location = new System.Drawing.Point(104, 226);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 25);
             this.button4.TabIndex = 25;
@@ -185,7 +187,7 @@ namespace Dyplom1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(163, 167);
+            this.button2.Location = new System.Drawing.Point(104, 167);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 25);
             this.button2.TabIndex = 23;
@@ -243,10 +245,11 @@ namespace Dyplom1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(651, 198);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(641, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(718, 376);
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -292,7 +295,7 @@ namespace Dyplom1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 454);
+            this.textBox1.Location = new System.Drawing.Point(120, 415);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 38;
@@ -301,7 +304,7 @@ namespace Dyplom1
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 504);
+            this.textBox2.Location = new System.Drawing.Point(120, 465);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 39;
@@ -310,7 +313,7 @@ namespace Dyplom1
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(144, 554);
+            this.textBox3.Location = new System.Drawing.Point(120, 515);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 40;
@@ -319,7 +322,7 @@ namespace Dyplom1
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(144, 604);
+            this.textBox4.Location = new System.Drawing.Point(120, 565);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 41;
@@ -328,7 +331,7 @@ namespace Dyplom1
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(303, 454);
+            this.textBox5.Location = new System.Drawing.Point(279, 415);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 42;
@@ -337,7 +340,7 @@ namespace Dyplom1
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(303, 504);
+            this.textBox6.Location = new System.Drawing.Point(279, 465);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 43;
@@ -346,7 +349,7 @@ namespace Dyplom1
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(303, 554);
+            this.textBox7.Location = new System.Drawing.Point(279, 515);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 44;
@@ -355,7 +358,7 @@ namespace Dyplom1
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(303, 604);
+            this.textBox8.Location = new System.Drawing.Point(279, 565);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 45;
@@ -364,7 +367,7 @@ namespace Dyplom1
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(465, 454);
+            this.textBox9.Location = new System.Drawing.Point(441, 415);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 46;
@@ -373,7 +376,7 @@ namespace Dyplom1
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(465, 504);
+            this.textBox10.Location = new System.Drawing.Point(441, 465);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 47;
@@ -382,7 +385,7 @@ namespace Dyplom1
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(465, 554);
+            this.textBox11.Location = new System.Drawing.Point(441, 515);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 48;
@@ -392,7 +395,7 @@ namespace Dyplom1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(141, 434);
+            this.label8.Location = new System.Drawing.Point(117, 395);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 49;
@@ -401,7 +404,7 @@ namespace Dyplom1
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(141, 484);
+            this.label9.Location = new System.Drawing.Point(117, 445);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 50;
@@ -410,7 +413,7 @@ namespace Dyplom1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(141, 534);
+            this.label10.Location = new System.Drawing.Point(117, 495);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 13);
             this.label10.TabIndex = 51;
@@ -419,7 +422,7 @@ namespace Dyplom1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(141, 584);
+            this.label11.Location = new System.Drawing.Point(117, 545);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 52;
@@ -428,7 +431,7 @@ namespace Dyplom1
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(300, 434);
+            this.label12.Location = new System.Drawing.Point(276, 395);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 13);
             this.label12.TabIndex = 53;
@@ -437,7 +440,7 @@ namespace Dyplom1
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(300, 484);
+            this.label13.Location = new System.Drawing.Point(276, 445);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 13);
             this.label13.TabIndex = 54;
@@ -446,7 +449,7 @@ namespace Dyplom1
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(300, 534);
+            this.label14.Location = new System.Drawing.Point(276, 495);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(82, 13);
             this.label14.TabIndex = 55;
@@ -455,7 +458,7 @@ namespace Dyplom1
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(300, 584);
+            this.label15.Location = new System.Drawing.Point(276, 545);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 13);
             this.label15.TabIndex = 56;
@@ -464,7 +467,7 @@ namespace Dyplom1
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(462, 434);
+            this.label16.Location = new System.Drawing.Point(438, 395);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(116, 13);
             this.label16.TabIndex = 57;
@@ -473,7 +476,7 @@ namespace Dyplom1
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(462, 484);
+            this.label17.Location = new System.Drawing.Point(438, 445);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(115, 13);
             this.label17.TabIndex = 58;
@@ -482,7 +485,7 @@ namespace Dyplom1
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(462, 534);
+            this.label18.Location = new System.Drawing.Point(438, 495);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(98, 13);
             this.label18.TabIndex = 59;
@@ -490,20 +493,48 @@ namespace Dyplom1
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(78, 345);
+            this.button12.Location = new System.Drawing.Point(25, 336);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(95, 25);
+            this.button12.Size = new System.Drawing.Size(139, 25);
             this.button12.TabIndex = 60;
             this.button12.Tag = "0";
             this.button12.Text = "Усього годин";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.comboBox1.Location = new System.Drawing.Point(120, 371);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 61;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(508, 222);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.TabIndex = 62;
+            this.button13.Text = "test";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1449, 671);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -603,6 +634,8 @@ namespace Dyplom1
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button13;
     }
 }
 
