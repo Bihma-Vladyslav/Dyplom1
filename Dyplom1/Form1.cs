@@ -167,97 +167,131 @@ namespace Dyplom1
         {
             listBox2.Items.Clear();
             index = 1;
-            String[] fields = { "Total_Hours" }; //, "Lecture_Hours", "Workshop_Hours", "Practical_Hours","Laboratory_Hours", "IndepWorkStud_Hours"
-            //String[] values = { listBox3.SelectedItem.ToString()};
-             String[] values = { listBox3.SelectedItem?.ToString() ?? "" };
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
             string condition = "Num_Section = " + index;
-            string sumResult = db.sum("Structure_Academic_Discipline", fields, values, condition);
+            string [] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 1");
-            listBox2.Items.Add("Усього годин: " + sumResult);
-          //  listBox3.Items.Add("");
-          //  listBox3.Items.Add(sumResult);
-           // db.sum("Structure_Academic_Discipline", fields, values, "Num_Section=1" + index);
-           // listBox2.Items.Add("Разом за розділом (змістовим модулем) 1");
-            //listBox2.Items.Add("Total_Hours: ");
-           // listBox3.Items.Add("");
-           // listBox3.Items.Add(db.sum("Structure_Academic_Discipline", fields, values, "Num_Section=1"));
-            listBox2.Items.Add("Лекційні години: ");
-            listBox2.Items.Add("Семінарські години: ");
-            listBox2.Items.Add("Практичні години: ");
-            listBox2.Items.Add("Лабораторні години: ");
-            listBox2.Items.Add("С.р.с. години: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+            index = 2;
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 2");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+            index = 3;
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 3");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+            index = 4;
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 4");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+            index = 5;
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 5");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
+            index = 6;
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.Sum("Structure_Academic_Discipline", fields, values, condition);
+
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 6");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
-            listBox2.Items.Add("Усього годин");
-            listBox2.Items.Add("Total_Hours: ");
-            listBox2.Items.Add("Lecture_Hours: ");
-            listBox2.Items.Add("Workshop_Hours: ");
-            listBox2.Items.Add("Practical_Hours: ");
-            listBox2.Items.Add("Laboratory_Hours: ");
-            listBox2.Items.Add("IndepWorkStud_Hours: ");
+            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
+            String[] values = new string[7];
+
+            string condition = "Num_Section = " + index;
+            string[] sumResult = db.SumAll("Structure_Academic_Discipline", fields, values);
+
+            listBox2.Items.Add("Усього годин: " + sumResult[0]);
+            listBox2.Items.Add("Лекційні години: " + sumResult[1]);
+            listBox2.Items.Add("Семінарські години: " + sumResult[2]);
+            listBox2.Items.Add("Практичні години: " + sumResult[3]);
+            listBox2.Items.Add("Лабораторні години: " + sumResult[4]);
+            listBox2.Items.Add("С.р.с години: " + sumResult[5]);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

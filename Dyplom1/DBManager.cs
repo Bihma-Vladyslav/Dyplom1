@@ -298,7 +298,7 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public string sum(String tablename, String[] fields, String[] values, String cond)
+        public string[] Sum(string tableName, string[] fields, string[] values, string condition)
         {
             try
             {
@@ -315,42 +315,74 @@ namespace Dyplom1
                         nonEmptyValues.Add(values[i]);
                     }
                 }
-                
-                  string query = "SELECT SUM(Total_Hours) AS TotalHours FROM " + tablename;
-                if (!string.IsNullOrEmpty(cond))
+
+                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\", SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
+                if (!string.IsNullOrEmpty(condition))
                 {
-                    query += " WHERE " + cond;
+                    query += " WHERE " + condition;
                 }
 
                 command.CommandText = query;
-                string result = command.ExecuteScalar()?.ToString();
+                string[] result = null;
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
+                {
+                    result = new String[datareader.FieldCount];
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        result[i] = datareader[i].ToString();
+                    }
+                };
+                datareader.Close();
                 connection.Close();
-
+                MessageBox.Show(query);
                 return result;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-                 
-               /* if (cond != null)
+        }
+        public string[] SumAll(string tableName, string[] fields, string[] values)
+        {
+            try
+            {
+                connection.Open();
+
+                List<string> nonEmptyFields = new List<string>();
+                List<string> nonEmptyValues = new List<string>();
+
+                for (int i = 0; i < fields.Length; i++)
                 {
-                command.CommandText = "select sum(Total_Hours) Усього годин from " + tablename + " where " + cond;
+                    if (!string.IsNullOrEmpty(values[i]))
+                    {
+                        nonEmptyFields.Add(fields[i]);
+                        nonEmptyValues.Add(values[i]);
+                    }
                 }
-                else
+
+                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\", SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
+
+                command.CommandText = query;
+                string[] result = null;
+                SQLiteDataReader datareader = command.ExecuteReader();
+                while (datareader.Read())
                 {
-                command.CommandText = "select sum(" + String.Join(",", nonEmptyFields) + ") from " + tablename;
-                    tmp = String.Join(",", nonEmptyFields);
-                }
-                MessageBox.Show(command.CommandText);
-                command.ExecuteNonQuery();
+                    result = new String[datareader.FieldCount];
+                    for (int i = 0; i < datareader.FieldCount; i++)
+                    {
+                        result[i] = datareader[i].ToString();
+                    }
+                };
+                datareader.Close();
                 connection.Close();
+                MessageBox.Show(query);
                 return result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
-            }*/
+            }
         }
         public string _getindex(String tablename, string section_, string class_)
         {

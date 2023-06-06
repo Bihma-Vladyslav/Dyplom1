@@ -107,7 +107,7 @@ namespace Dyplom1
             // 
             this.button21.Location = new System.Drawing.Point(556, 615);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(97, 23);
+            this.button21.Size = new System.Drawing.Size(135, 25);
             this.button21.TabIndex = 43;
             this.button21.Text = "Перехід";
             this.button21.UseVisualStyleBackColor = true;
@@ -293,7 +293,7 @@ namespace Dyplom1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 678);
+            this.ClientSize = new System.Drawing.Size(1407, 687);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
