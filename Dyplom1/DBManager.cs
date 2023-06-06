@@ -71,7 +71,6 @@ namespace Dyplom1
                 return res;*/
                 
                 command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
-                MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
@@ -115,7 +114,6 @@ namespace Dyplom1
             try
             {
                 command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM " + tablename;
-                MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
@@ -158,7 +156,6 @@ namespace Dyplom1
             try
             {
                 command.CommandText = "SELECT Number_Sequence \"пн\", Name_Class \"Назва заняття\", Number_Hours \"Кількість годин\" FROM " + tablename;
-                MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
@@ -231,7 +228,6 @@ namespace Dyplom1
 
                 command.CommandText = "insert into "+tablename+"("+String.Join(",", nonEmptyFields) +") values("+ 
                     String.Join(",", nonEmptyValues)+")";
-                MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
                 connection.Close();
                // }
@@ -289,7 +285,6 @@ namespace Dyplom1
                 command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1]
                     + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where" + column + " = " + value;;
                 string tmp = command.CommandText;
-                MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
                 connection.Close();
             }
@@ -335,7 +330,6 @@ namespace Dyplom1
                 };
                 datareader.Close();
                 connection.Close();
-                MessageBox.Show(query);
                 return result;
             }
             catch (Exception ex)
@@ -376,7 +370,6 @@ namespace Dyplom1
                 };
                 datareader.Close();
                 connection.Close();
-                MessageBox.Show(query);
                 return result;
             }
             catch (Exception ex)

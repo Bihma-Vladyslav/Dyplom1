@@ -73,6 +73,7 @@ namespace Dyplom1
             this.button12 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -499,11 +500,23 @@ namespace Dyplom1
             this.label20.TabIndex = 66;
             this.label20.Text = "контролю";
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button8.Location = new System.Drawing.Point(975, 600);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(135, 27);
+            this.button8.TabIndex = 67;
+            this.button8.Text = "Створити документ";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 687);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.button12);
@@ -602,6 +615,7 @@ namespace Dyplom1
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button8;
     }
 }
 

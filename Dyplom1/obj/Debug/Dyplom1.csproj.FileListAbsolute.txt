@@ -18,3 +18,5 @@ D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.csproj.CopyComplete
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.exe
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.pdb
+D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.csproj.ResolveComReference.cache
+D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.Form3.resources
