@@ -39,6 +39,14 @@ namespace Dyplom1
             button15.Tag = 0;
             button16.Tag = 0;
             button17.Tag = 0;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            if (button14.Tag.Equals(1))
+            {
+                label8.Text = "№ з/п";
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,24 +56,45 @@ namespace Dyplom1
             button15.Tag = 1;
             button16.Tag = 0;
             button17.Tag = 0;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            if (button15.Tag.Equals(1))
+            {
+                label8.Text = "№ з/п";
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            db.selectall2("Topics_Laboratory_Classes", dataGridView1);
+            db.selectall2("Topics_Laboratory_Works", dataGridView1);
             button14.Tag = 0;
             button15.Tag = 0;
             button16.Tag = 1;
             button17.Tag = 0;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            if (button16.Tag.Equals(1))
+            {
+                label8.Text = "пн";
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            db.selectall3("Topics_Independent_Works", dataGridView1);
-            button14.Tag = 1;
+            db.selectall2("Topics_Independent_Works", dataGridView1);
+            button14.Tag = 0;
             button15.Tag = 0;
             button16.Tag = 0;
-            button17.Tag = 17;
+            button17.Tag = 1;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            if (button17.Tag.Equals(1))
+            {
+                label8.Text = "пн";
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -97,13 +126,14 @@ namespace Dyplom1
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridView1.Rows.Count != e.RowIndex + 1)
                 try
                 {
                     //тут трабл якщо натискаєш на пусту клітинку
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                     textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-
+                    //ind = db._getindex("Structure_Academic_Discipline", textBox1.Text, textBox2.Text);
                 }
                 catch
                 {

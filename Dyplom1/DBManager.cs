@@ -69,7 +69,7 @@ namespace Dyplom1
                 connection.Close();
                 return res;*/
                 
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
@@ -88,7 +88,7 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -103,36 +103,17 @@ namespace Dyplom1
                 datareader.Close();
                 connection.Close();
                 return res;
-                /*            int index;
-            try
-            {
-                
-                command.CommandText = "select \"Index\" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = " + section_ + " AND Num_Class = " + class_;
-                connection.Open();
-                SQLiteDataReader datareader1 = command.ExecuteReader();                
-                command.ExecuteNonQuery();
-                index = datareader1.GetInt32(0);
-                datareader1.Close();
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                index = -1;
-                throw ex;
-            }*/
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        //для семінару
         public void selectall1(String tablename, DataGridView datagrid)
         {
             try
             {
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM " + tablename;
                 MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
@@ -143,7 +124,6 @@ namespace Dyplom1
             catch (Exception ex)
             {
                 throw ex;
-                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
             }
         }
         public List<List<Object>> selectall1(String tablename)
@@ -151,7 +131,7 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -172,12 +152,11 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        //для практичної
         public void selectall2(String tablename, DataGridView datagrid)
         {
             try
             {
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Number_Sequence \"пн\", Name_Class \"Назва заняття\", Number_Hours \"Кількість годин\" FROM " + tablename;
                 MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
@@ -188,7 +167,6 @@ namespace Dyplom1
             catch (Exception ex)
             {
                 throw ex;
-                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
             }
         }
         public List<List<Object>> selectall2(String tablename)
@@ -196,7 +174,7 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
+                command.CommandText = "SELECT Number_Sequence \"пн\", Name_Class \"Назва заняття\", Number_Hours \"Кількість годин\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -217,96 +195,7 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        //для лабораторної
-        public void selectall3(String tablename, DataGridView datagrid)
-        {
-            try
-            {
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
-                MessageBox.Show(command.CommandText);
-                connection.Open();
-                SQLiteDataReader datareader = command.ExecuteReader();
-                fillgrid(datareader, datagrid);
-                datareader.Close();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
-            }
-        }
-        public List<List<Object>> selectall3(String tablename)
-        {
-            try
-            {
-                var res = new List<List<Object>>();
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
-                connection.Open();
-                SQLiteDataReader datareader = command.ExecuteReader();
-                while (datareader.Read())
-                {
-                    List<Object> row = new List<object>();
-                    for (int i = 0; i < datareader.FieldCount; i++)
-                    {
-                        row.Add(datareader[i]);
-                    }
-                    res.Add(row);
-                }
-                datareader.Close();
-                connection.Close();
-                return res;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        //для самостійної
-        public void selectall4(String tablename, DataGridView datagrid)
-        {
-            try
-            {
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
-                MessageBox.Show(command.CommandText);
-                connection.Open();
-                SQLiteDataReader datareader = command.ExecuteReader();
-                fillgrid(datareader, datagrid);
-                datareader.Close();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
-            }
-        }
-        public List<List<Object>> selectall4(String tablename)
-        {
-            try
-            {
-                var res = new List<List<Object>>();
-                command.CommandText = "SELECT Number_Sequence \"№ з/п\", Topic_Name \"Назва теми\", Number_Hours \"Кількість годин\" FROM Structure_Academic_Discipline " + tablename;
-                connection.Open();
-                SQLiteDataReader datareader = command.ExecuteReader();
-                while (datareader.Read())
-                {
-                    List<Object> row = new List<object>();
-                    for (int i = 0; i < datareader.FieldCount; i++)
-                    {
-                        row.Add(datareader[i]);
-                    }
-                    res.Add(row);
-                }
-                datareader.Close();
-                connection.Close();
-                return res;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+   
         public void ExecSQl(String query)
         {
             try
@@ -488,7 +377,7 @@ namespace Dyplom1
             string index = "";
             try
             {
-
+                
                 command.CommandText = "select \"Index\" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = " + section_ + " AND Num_Class = " + class_;
                 connection.Open();
 
