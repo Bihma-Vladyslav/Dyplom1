@@ -111,6 +111,7 @@ namespace Dyplom1
             this.button21.TabIndex = 43;
             this.button21.Text = "Перехід";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button17
             // 
@@ -240,6 +241,7 @@ namespace Dyplom1
             this.button20.Size = new System.Drawing.Size(70, 23);
             this.button20.TabIndex = 58;
             this.button20.Text = "Оновити";
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button19
             // 
@@ -248,6 +250,7 @@ namespace Dyplom1
             this.button19.Size = new System.Drawing.Size(70, 23);
             this.button19.TabIndex = 59;
             this.button19.Text = "Видалити";
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button18
             // 
@@ -316,6 +319,7 @@ namespace Dyplom1
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -99,29 +99,32 @@ namespace Dyplom1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            String[] fields = { "Number_Suquence", "Topic_Name", "Number_Hours" };
             String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
             //треба прописати, за якою умовою додаються поля зі значеннями в яку конкретно таблицю
             //бо всі таблиці мають однакові поля, але як зрозуміти, в яку саме користувач хоче вписати дані цим insert-ом
             if (button14.Tag.Equals(1))
             {
+                String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
                 db.insert("Topics_Seminar_Classes", fields, values);
-                db.selectall("Topics_Seminar_Classes", dataGridView1);
+                db.selectall1("Topics_Seminar_Classes", dataGridView1);
             }
             if (button15.Tag.Equals(1))
             {
+                String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
                 db.insert("Topics_Practical_Classes", fields, values);
-                db.selectall("Topics_Practical_Classes", dataGridView1);
+                db.selectall1("Topics_Practical_Classes", dataGridView1);
             }
             if (button16.Tag.Equals(1))
             {
-                db.insert("Topics_Laboratory_Classes", fields, values);
-                db.selectall("Topics_Laboratory_Classes", dataGridView1);
+                String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
+                db.insert("Topics_Laboratory_Works", fields, values);
+                db.selectall2("Topics_Laboratory_Works", dataGridView1);
             }
             if (button17.Tag.Equals(1))
             {
+                String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
                 db.insert("Topics_Independent_Works", fields, values);
-                db.selectall("Topics_Independent_Works", dataGridView1);
+                db.selectall2("Topics_Independent_Works", dataGridView1);
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,13 +136,81 @@ namespace Dyplom1
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                     textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    //ind = db._getindex("Structure_Academic_Discipline", textBox1.Text, textBox2.Text);
+                    ind = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 }
                 catch
                 {
 
                 }
         }
-        
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (button14.Tag.Equals(1))
+            {
+                db.delete("Topics_Seminar_Classes", "Number_Sequence=" + textBox1.Text);
+                db.selectall1("Topics_Seminar_Classes", dataGridView1);
+            }
+            if (button15.Tag.Equals(1))
+            {
+                db.delete("Topics_Practical_Classes", "Number_Sequence=" + textBox1.Text);
+                db.selectall1("Topics_Practical_Classes", dataGridView1);
+            }
+            if (button16.Tag.Equals(1))
+            {
+                db.delete("Topics_Laboratory_Works", "Number_Sequence=" + textBox1.Text);
+                db.selectall2("Topics_Laboratory_Works", dataGridView1);
+            }
+            if (button17.Tag.Equals(1))
+            {
+                db.delete("Topics_Independent_Works", "Number_Sequence=" + textBox1.Text);
+                db.selectall2("Topics_Independent_Works", dataGridView1);
+            }
+            //db.delete("Topics_Seminar_Classes", "Number_Sequence=" + textBox1.Text);
+            //db.selectall("Topics_Seminar_Classes", dataGridView1);
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (button14.Tag.Equals(1))
+            {
+                String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours"};
+                String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
+                db.update("Topics_Seminar_Classes", fields, values, "\"Number_Sequence\"", ind);
+                db.selectall1("Topics_Seminar_Classes", dataGridView1);
+            }
+            if (button15.Tag.Equals(1))
+            {
+                String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
+                String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
+                db.update("Topics_Practical_Classes", fields, values, "\"Number_Sequence\"", ind);
+                db.selectall1("Topics_Practical_Classes", dataGridView1);
+            }
+            if (button16.Tag.Equals(1))
+            {
+                String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
+                String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
+                db.update("Topics_Laboratory_Works", fields, values, "\"Number_Sequence\"", ind);
+                db.selectall2("Topics_Laboratory_Works", dataGridView1);
+            }
+            if (button17.Tag.Equals(1))
+            {
+                String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
+                String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
+                db.update("Topics_Independent_Works", fields, values, "\"Number_Sequence\"", ind);
+                db.selectall2("Topics_Independent_Works", dataGridView1);
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            this.Close();
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

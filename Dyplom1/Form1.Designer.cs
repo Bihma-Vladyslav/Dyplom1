@@ -73,8 +73,12 @@ namespace Dyplom1
             this.label18 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button13 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -91,7 +95,7 @@ namespace Dyplom1
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(193, 167);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(244, 160);
+            this.listBox2.Size = new System.Drawing.Size(186, 160);
             this.listBox2.TabIndex = 32;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -365,7 +369,7 @@ namespace Dyplom1
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(441, 465);
+            this.textBox10.Location = new System.Drawing.Point(438, 487);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(100, 20);
             this.textBox10.TabIndex = 47;
@@ -374,7 +378,7 @@ namespace Dyplom1
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(441, 515);
+            this.textBox11.Location = new System.Drawing.Point(441, 565);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(100, 20);
             this.textBox11.TabIndex = 48;
@@ -386,99 +390,99 @@ namespace Dyplom1
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(117, 395);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
+            this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 49;
-            this.label8.Text = "Num_Section";
+            this.label8.Text = "№ Розділу";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(117, 445);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 50;
-            this.label9.Text = "Num_Class";
+            this.label9.Text = "№ Заняття";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(117, 495);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.Size = new System.Drawing.Size(82, 13);
             this.label10.TabIndex = 51;
-            this.label10.Text = "Name_Section";
+            this.label10.Text = "Назви розділів";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(117, 545);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 52;
-            this.label11.Text = "Total_Hours";
+            this.label11.Text = "Усього годин";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(276, 395);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
+            this.label12.Size = new System.Drawing.Size(87, 13);
             this.label12.TabIndex = 53;
-            this.label12.Text = "Lecture_Hours";
+            this.label12.Text = "Лекційні години";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(276, 445);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.Size = new System.Drawing.Size(106, 13);
             this.label13.TabIndex = 54;
-            this.label13.Text = "Workshop_Hours";
+            this.label13.Text = "Семінарські години";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(276, 495);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 13);
+            this.label14.Size = new System.Drawing.Size(95, 13);
             this.label14.TabIndex = 55;
-            this.label14.Text = "Practical_Hours";
+            this.label14.Text = "Практичні години";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(276, 545);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(91, 13);
+            this.label15.Size = new System.Drawing.Size(108, 13);
             this.label15.TabIndex = 56;
-            this.label15.Text = "Laboratory_Hours";
+            this.label15.Text = "Лабораторні години";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(438, 395);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(116, 13);
+            this.label16.Size = new System.Drawing.Size(70, 13);
             this.label16.TabIndex = 57;
-            this.label16.Text = "IndepWorkStud_Hours";
+            this.label16.Text = "С.р.с години";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(438, 445);
+            this.label17.Location = new System.Drawing.Point(435, 445);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(115, 13);
+            this.label17.Size = new System.Drawing.Size(91, 13);
             this.label17.TabIndex = 58;
-            this.label17.Text = "Recommended_Books";
+            this.label17.Text = "Рекомендована ";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(438, 495);
+            this.label18.Location = new System.Drawing.Point(438, 527);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(98, 13);
+            this.label18.Size = new System.Drawing.Size(100, 13);
             this.label18.TabIndex = 59;
-            this.label18.Text = "Forms_Means_Con";
+            this.label18.Text = "Форми та засоби ";
             // 
             // button12
             // 
@@ -501,28 +505,56 @@ namespace Dyplom1
             "4",
             "5",
             "6"});
-            this.comboBox1.Location = new System.Drawing.Point(120, 371);
+            this.comboBox1.Location = new System.Drawing.Point(399, 12);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 61;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button13
+            // listBox3
             // 
-            this.button13.Location = new System.Drawing.Point(508, 222);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 62;
-            this.button13.Text = "test";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(494, 1);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(120, 160);
+            this.listBox3.TabIndex = 63;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(385, 167);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(240, 160);
+            this.dataGridView2.TabIndex = 64;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(435, 465);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 13);
+            this.label19.TabIndex = 65;
+            this.label19.Text = "література";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(438, 545);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(56, 13);
+            this.label20.TabIndex = 66;
+            this.label20.Text = "контролю";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1449, 671);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.label18);
@@ -571,6 +603,7 @@ namespace Dyplom1
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,7 +655,10 @@ namespace Dyplom1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
     }
 }
 

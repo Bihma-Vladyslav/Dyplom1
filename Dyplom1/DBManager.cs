@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Dyplom1
 {
+    
     public class DBManager
     {
         SQLiteConnection connection;
@@ -69,7 +70,7 @@ namespace Dyplom1
                 connection.Close();
                 return res;*/
                 
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 MessageBox.Show(command.CommandText);
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
@@ -88,7 +89,7 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -262,7 +263,7 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public void update(String tablename, String[] fields, String[] values, String cond)
+        public void update(String tablename, String[] fields, String[] values, String column, String value)
         {
             try
             {
@@ -286,7 +287,7 @@ namespace Dyplom1
                     command.CommandText += nonEmptyFields[i] + " = " + nonEmptyValues[i] + " , ";
                 }
                 command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1]
-                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where \"Index\" = " + cond;
+                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where" + column + " = " + value;;
                 string tmp = command.CommandText;
                 MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
@@ -297,9 +298,8 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public void update(String tablename, String[] fields, String[] values, String sections, String class_)
+        public string sum(String tablename, String[] fields, String[] values, String cond)
         {
-            string index = _getindex(tablename, sections, class_);
             try
             {
                 connection.Open();
@@ -315,46 +315,27 @@ namespace Dyplom1
                         nonEmptyValues.Add(values[i]);
                     }
                 }
-
-                command.CommandText = "update " + tablename + " set ";
-                for (int i = 0; i < nonEmptyFields.Count - 1 && i < nonEmptyValues.Count - 1; i++)
+                
+                  string query = "SELECT SUM(Total_Hours) AS TotalHours FROM " + tablename;
+                if (!string.IsNullOrEmpty(cond))
                 {
-                    command.CommandText += nonEmptyFields[i] + " = " + nonEmptyValues[i] + " , ";
+                    query += " WHERE " + cond;
                 }
-                command.CommandText += nonEmptyFields[nonEmptyFields.Count - 1]
-                    + " = " + nonEmptyValues[nonEmptyValues.Count - 1] + " where \"Index\" = " + index;
-                string tmp = command.CommandText;
-                MessageBox.Show(command.CommandText);
-                command.ExecuteNonQuery();
+
+                command.CommandText = query;
+                string result = command.ExecuteScalar()?.ToString();
                 connection.Close();
+
+                return result;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
-        public void sum(String tablename, String[] fields, String[] values, String cond)
-        {
-            string tmp;
-            try
-            {
-                connection.Open();
-
-                List<string> nonEmptyFields = new List<string>();
-                List<string> nonEmptyValues = new List<string>();
-
-                for (int i = 0; i < fields.Length; i++)
+                 
+               /* if (cond != null)
                 {
-                    if (!string.IsNullOrEmpty(values[i]))
-                    {
-                        nonEmptyFields.Add(fields[i]);
-                        nonEmptyValues.Add(values[i]);
-                    }
-                }
-
-                if (cond != null)
-                {
-                command.CommandText = "select sum(Total_Hours) from " + tablename + " where " + cond;
+                command.CommandText = "select sum(Total_Hours) Усього годин from " + tablename + " where " + cond;
                 }
                 else
                 {
@@ -364,12 +345,12 @@ namespace Dyplom1
                 MessageBox.Show(command.CommandText);
                 command.ExecuteNonQuery();
                 connection.Close();
-
+                return result;
             }
             catch(Exception ex)
             {
                 throw ex;
-            }
+            }*/
         }
         public string _getindex(String tablename, string section_, string class_)
         {

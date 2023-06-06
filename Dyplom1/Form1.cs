@@ -92,89 +92,8 @@ namespace Dyplom1
             String[] values = { textBox1.Text, textBox2.Text, "'" + textBox3.Text + "'", textBox4.Text,
             textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text,
              "'" + textBox10.Text + "'", "'" + textBox11.Text + "'"};
-            db.update("Structure_Academic_Discipline", fields, values, ind);
-            //, "Num_Section=" + textBox1.Text +             " and Name_Section=" + "'" + textBox3.Text + "'"
-            db.selectall("Structure_Academic_Discipline", dataGridView1);
-            /*
-            if (textBox1.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + 
-                    " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox2.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox3.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox4.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox5.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox6.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox7.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox8.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox9.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox10.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-
-            }
-
-            if (textBox11.Tag.ToString() == "1")
-            {
-                db.update("Structure_Academic_Discipline", fields, values, "Num_Section=" + textBox1.Text + " and Name_Section=" + "'" + textBox3.Text + "'");
-                db.selectall("Structure_Academic_Discipline", dataGridView1);
-            }
-            
-            textBox1.Tag = 0;
-            textBox2.Tag = 0;
-            textBox3.Tag = 0;
-            textBox4.Tag = 0;
-            textBox5.Tag = 0;
-            textBox6.Tag = 0;
-            textBox7.Tag = 0;
-            textBox8.Tag = 0;
-            textBox9.Tag = 0;
-            textBox10.Tag = 0;
-            textBox11.Tag = 0;
-            */
+            db.update("Structure_Academic_Discipline", fields, values, "\"Index\"" , ind);
+            db.selectall("Structure_Academic_Discipline", dataGridView1);      
         }
 
         private void button7_Click_1(object sender, EventArgs e)
@@ -248,17 +167,25 @@ namespace Dyplom1
         {
             listBox2.Items.Clear();
             index = 1;
-            String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours",
-             "Practical_Hours","Laboratory_Hours", "IndepWorkStud_Hours" };
-            String[] values = { textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text};
-            db.sum("Structure_Academic_Discipline", fields, values, "Num_Section=" + index);
+            String[] fields = { "Total_Hours" }; //, "Lecture_Hours", "Workshop_Hours", "Practical_Hours","Laboratory_Hours", "IndepWorkStud_Hours"
+            //String[] values = { listBox3.SelectedItem.ToString()};
+             String[] values = { listBox3.SelectedItem?.ToString() ?? "" };
+            string condition = "Num_Section = " + index;
+            string sumResult = db.sum("Structure_Academic_Discipline", fields, values, condition);
             listBox2.Items.Add("Разом за розділом (змістовим модулем) 1");
-            listBox2.Items.Add("Total_Hours: " + textBox4.Text);
-            listBox2.Items.Add("Lecture_Hours: " + textBox5.Text);
-            listBox2.Items.Add("Workshop_Hours: " + textBox6.Text);
-            listBox2.Items.Add("Practical_Hours: " + textBox7.Text);
-            listBox2.Items.Add("Laboratory_Hours: " + textBox8.Text);
-            listBox2.Items.Add("IndepWorkStud_Hours: " + textBox9.Text);
+            listBox2.Items.Add("Усього годин: " + sumResult);
+          //  listBox3.Items.Add("");
+          //  listBox3.Items.Add(sumResult);
+           // db.sum("Structure_Academic_Discipline", fields, values, "Num_Section=1" + index);
+           // listBox2.Items.Add("Разом за розділом (змістовим модулем) 1");
+            //listBox2.Items.Add("Total_Hours: ");
+           // listBox3.Items.Add("");
+           // listBox3.Items.Add(db.sum("Structure_Academic_Discipline", fields, values, "Num_Section=1"));
+            listBox2.Items.Add("Лекційні години: ");
+            listBox2.Items.Add("Семінарські години: ");
+            listBox2.Items.Add("Практичні години: ");
+            listBox2.Items.Add("Лабораторні години: ");
+            listBox2.Items.Add("С.р.с. години: ");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -341,7 +268,11 @@ namespace Dyplom1
         private void button13_Click(object sender, EventArgs e)
         {
 
-         MessageBox.Show(db._getindex("Structure_Academic_Discipline", "3","22").ToString());
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
