@@ -51,26 +51,11 @@ namespace Dyplom1
         public void selectall(String tablename, DataGridView datagrid)
         {
             try
-            {
-                /*
-                Console.WriteLine("it's working, for sure");
-                var res = new List<List<object>>();
-                connection.Open();
-                command.CommandText = "select *  from " + tablename;
-                SQLiteDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    List<Object> row = new List<object>();
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        row.Add(reader[i]);
-                    }
-                    res.Add(row);
-                };
-                connection.Close();
-                return res;*/
-                
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
+            {               
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", " +
+                    "Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", " +
+                    "Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", " +
+                    "Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 fillgrid(datareader, datagrid);
@@ -80,7 +65,6 @@ namespace Dyplom1
             catch (Exception ex)
             {
                 throw ex;
-                //тут та ж помилка з датарідеором, що поки він активний то не можна встановити commandtext
             }
         }
         public List<List<Object>> selectall(String tablename)
@@ -88,7 +72,10 @@ namespace Dyplom1
             try
             {
                 var res = new List<List<Object>>();
-                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\", Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
+                command.CommandText = "SELECT Num_Section \"№ Розділу\", Num_Class \"№ Заняття\", Name_Section \"Назви розділів\", " +
+                    "Total_Hours \"Усього годин\", Lecture_Hours \"Лекційні години\", Workshop_Hours \"Семінарські години\"," +
+                    " Practical_Hours \"Практичні години\", Laboratory_Hours \"Лабораторні години\", IndepWorkStud_Hours \"С.р.с години\", " +
+                    "Recommended_Books \"Рекомендована література\", Forms_Means_Con \"Форми та засоби контролю\" FROM " + tablename;
                 connection.Open();
                 SQLiteDataReader datareader = command.ExecuteReader();
                 while (datareader.Read())
@@ -230,7 +217,6 @@ namespace Dyplom1
                     String.Join(",", nonEmptyValues)+")";
                 command.ExecuteNonQuery();
                 connection.Close();
-               // }
             }
             catch (Exception ex)
             {
@@ -256,6 +242,8 @@ namespace Dyplom1
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть поле «Назва розділу»" +
+                    "для видалення необіхдного поля");
                 throw ex;
             }
         }
@@ -276,7 +264,6 @@ namespace Dyplom1
                         nonEmptyValues.Add(values[i]);
                     }
                 }
-
                 command.CommandText = "update " + tablename + " set ";
                 for (int i = 0; i < nonEmptyFields.Count - 1 && i < nonEmptyValues.Count - 1; i++)
                 {
@@ -293,7 +280,7 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public string[] Sum(string tableName, string[] fields, string[] values, string condition)
+        public string[] sum(string tableName, string[] fields, string[] values, string condition)
         {
             try
             {
@@ -311,7 +298,8 @@ namespace Dyplom1
                     }
                 }
 
-                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\", SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
+                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\"," +
+                    " SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
                 if (!string.IsNullOrEmpty(condition))
                 {
                     query += " WHERE " + condition;
@@ -337,7 +325,7 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public string[] SumAll(string tableName, string[] fields, string[] values)
+        public string[] sumall(string tableName, string[] fields, string[] values)
         {
             try
             {
@@ -355,7 +343,8 @@ namespace Dyplom1
                     }
                 }
 
-                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\", SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
+                string query = "SELECT SUM(Total_Hours) \"Усього годин\", SUM(Lecture_Hours) \"Лекційні години\", SUM(Workshop_Hours) \"Семінарські години\"," +
+                    " SUM(Practical_Hours) \"Практичні години\", SUM(Laboratory_Hours) \"Лабораторні години\", SUM(IndepWorkStud_Hours) \"С.р.с години\" FROM " + tableName;
 
                 command.CommandText = query;
                 string[] result = null;
@@ -377,9 +366,8 @@ namespace Dyplom1
                 throw ex;
             }
         }
-        public string _getindex(String tablename, string section_, string class_)
+        public string getindex(String tablename, string section_, string class_)
         {
-            //ось так?
             string index = "";
             try
             {
@@ -406,7 +394,6 @@ namespace Dyplom1
             {
                 throw ex;
             }
-            //SELECT "Index" FROM Structure_Academic_Discipline INDEXED BY Index_Section_Class WHERE Num_Section = 3 AND Num_Class = 22;
             return index;
         }
     }

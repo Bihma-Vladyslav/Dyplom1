@@ -29,6 +29,7 @@ namespace Dyplom1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,25 +75,35 @@ namespace Dyplom1
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.button13 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
+            this.listBox2.Items.AddRange(new object[] {
+            "Разом за розділом (змістовим модулем) 1:",
+            "Усього годин: ",
+            "Лекційні години:",
+            "Семінарські години:",
+            "Практичні години:",
+            "Лабораторні години:",
+            "С.р.с години:"});
             this.listBox2.Location = new System.Drawing.Point(28, 164);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(351, 160);
+            this.listBox2.Size = new System.Drawing.Size(254, 160);
             this.listBox2.TabIndex = 32;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(975, 564);
+            this.button7.Location = new System.Drawing.Point(975, 565);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(135, 25);
             this.button7.TabIndex = 31;
-            this.button7.Text = "Перехід";
+            this.button7.Text = "Перехід між формами";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
@@ -395,9 +406,9 @@ namespace Dyplom1
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(128, 568);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(82, 13);
+            this.label10.Size = new System.Drawing.Size(79, 13);
             this.label10.TabIndex = 51;
-            this.label10.Text = "Назви розділів";
+            this.label10.Text = "Назва розділу";
             // 
             // label11
             // 
@@ -511,11 +522,33 @@ namespace Dyplom1
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Items.AddRange(new object[] {
+            " "});
+            this.listBox3.Location = new System.Drawing.Point(279, 164);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(100, 160);
+            this.listBox3.TabIndex = 68;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(975, 635);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(135, 27);
+            this.button13.TabIndex = 69;
+            this.button13.Text = "Вихід з програми";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1624, 687);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -561,8 +594,9 @@ namespace Dyplom1
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Перша форма";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -616,6 +650,8 @@ namespace Dyplom1
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Button button13;
     }
 }
 

@@ -20,7 +20,6 @@ namespace Dyplom1
             db.connectTo();
         }
         DBManager db;
-        int index = 0;
         string ind = "";
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -45,7 +44,6 @@ namespace Dyplom1
             if (button14.Tag.Equals(1))
             {
                 label8.Text = "№ з/п";
-
             }
         }
 
@@ -100,31 +98,65 @@ namespace Dyplom1
         private void button9_Click(object sender, EventArgs e)
         {
             String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
-            //треба прописати, за якою умовою додаються поля зі значеннями в яку конкретно таблицю
-            //бо всі таблиці мають однакові поля, але як зрозуміти, в яку саме користувач хоче вписати дані цим insert-ом
             if (button14.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+                && !string.IsNullOrEmpty(textBox3.Text))
+                {  
                 db.insert("Topics_Seminar_Classes", fields, values);
                 db.selectall1("Topics_Seminar_Classes", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "№ з/п, № Заняття, Назва теми та Кількість годин");
+                }
             }
             if (button15.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
-                db.insert("Topics_Practical_Classes", fields, values);
-                db.selectall1("Topics_Practical_Classes", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+                && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.insert("Topics_Practical_Classes", fields, values);
+                    db.selectall1("Topics_Practical_Classes", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "№ з/п, № Заняття, Назва теми та Кількість годин");
+                }
             }
             if (button16.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
-                db.insert("Topics_Laboratory_Works", fields, values);
-                db.selectall2("Topics_Laboratory_Works", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+               && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.insert("Topics_Laboratory_Works", fields, values);
+                    db.selectall2("Topics_Laboratory_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "пн, № Заняття, Назва теми та Кількість годин");
+                }
             }
             if (button17.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
-                db.insert("Topics_Independent_Works", fields, values);
-                db.selectall2("Topics_Independent_Works", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+               && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.insert("Topics_Independent_Works", fields, values);
+                    db.selectall2("Topics_Independent_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "пн, № Заняття, Назва теми та Кількість годин");
+                }
             }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -132,7 +164,6 @@ namespace Dyplom1
             if (dataGridView1.Rows.Count != e.RowIndex + 1)
                 try
                 {
-                    //тут трабл якщо натискаєш на пусту клітинку
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                     textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -148,26 +179,56 @@ namespace Dyplom1
         {
             if (button14.Tag.Equals(1))
             {
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                { 
                 db.delete("Topics_Seminar_Classes", "Number_Sequence=" + textBox1.Text);
                 db.selectall1("Topics_Seminar_Classes", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть перше поле: " +
+                                   "№ з/п, за яким відбувається функція видалення");
+                }
             }
             if (button15.Tag.Equals(1))
             {
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                {     
                 db.delete("Topics_Practical_Classes", "Number_Sequence=" + textBox1.Text);
                 db.selectall1("Topics_Practical_Classes", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть перше поле: " +
+                                   "№ з/п, за яким відбувається функція видалення");
+                }
             }
             if (button16.Tag.Equals(1))
             {
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                { 
                 db.delete("Topics_Laboratory_Works", "Number_Sequence=" + textBox1.Text);
                 db.selectall2("Topics_Laboratory_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть перше поле: " +
+                                   "пн, за яким відбувається функція видалення");
+                }
             }
             if (button17.Tag.Equals(1))
             {
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                { 
                 db.delete("Topics_Independent_Works", "Number_Sequence=" + textBox1.Text);
                 db.selectall2("Topics_Independent_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть перше поле: " +
+                                   "пн, за яким відбувається функція видалення");
+                }
             }
-            //db.delete("Topics_Seminar_Classes", "Number_Sequence=" + textBox1.Text);
-            //db.selectall("Topics_Seminar_Classes", dataGridView1);
         }
 
         private void button20_Click(object sender, EventArgs e)
@@ -176,35 +237,70 @@ namespace Dyplom1
             {
                 String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours"};
                 String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+               && !string.IsNullOrEmpty(textBox3.Text))
+                { 
                 db.update("Topics_Seminar_Classes", fields, values, "\"Number_Sequence\"", ind);
                 db.selectall1("Topics_Seminar_Classes", dataGridView1);
+                }
+                else
+                {
+                MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "№ з/п, Назва теми та Кількість годин");
+                }
             }
             if (button15.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Topic_Name", "Number_Hours" };
                 String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
-                db.update("Topics_Practical_Classes", fields, values, "\"Number_Sequence\"", ind);
-                db.selectall1("Topics_Practical_Classes", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+               && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.update("Topics_Practical_Classes", fields, values, "\"Number_Sequence\"", ind);
+                    db.selectall1("Topics_Practical_Classes", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                     "№ з/п, Назва теми та Кількість годин");
+                }
             }
             if (button16.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
                 String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
-                db.update("Topics_Laboratory_Works", fields, values, "\"Number_Sequence\"", ind);
-                db.selectall2("Topics_Laboratory_Works", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+              && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.update("Topics_Laboratory_Works", fields, values, "\"Number_Sequence\"", ind);
+                    db.selectall2("Topics_Laboratory_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "пн, Назва теми та Кількість годин");
+                }
             }
-            if (button17.Tag.Equals(1))
+                if (button17.Tag.Equals(1))
             {
                 String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
                 String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
-                db.update("Topics_Independent_Works", fields, values, "\"Number_Sequence\"", ind);
-                db.selectall2("Topics_Independent_Works", dataGridView1);
+                if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
+             && !string.IsNullOrEmpty(textBox3.Text))
+                {
+                    db.update("Topics_Independent_Works", fields, values, "\"Number_Sequence\"", ind);
+                    db.selectall2("Topics_Independent_Works", dataGridView1);
+                }
+                else
+                {
+                    MessageBox.Show("Помилка! Будь ласка, обов'язково заповніть усі поля: " +
+                 "пн, Назва теми та Кількість годин");
+                }
             }
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
             this.Close();
         }
 
