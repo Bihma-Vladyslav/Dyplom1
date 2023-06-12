@@ -518,9 +518,10 @@ namespace Dyplom1
                 currentSelection.TypeText(s17);
                 currentSelection.TypeParagraph();
                 currentSelection.TypeParagraph();
+                currentSelection.TypeParagraph();
 
-                r = doc.Range(cur_pos, cur_pos + s17.Length + 2);
-                cur_pos = cur_pos + s17.Length + 2;
+                r = doc.Range(cur_pos, cur_pos + s17.Length + 3);
+                cur_pos = cur_pos + s17.Length + 3;
                 r.Font.Name = " Times New Roman ";
                 r.Font.Size = 14;
                 r.ParagraphFormat.Alignment =
@@ -548,9 +549,10 @@ namespace Dyplom1
                 currentSelection.TypeText(s19);
                 currentSelection.TypeParagraph();
                 currentSelection.TypeParagraph();
+                currentSelection.TypeParagraph();
 
-                r = doc.Range(cur_pos, cur_pos + s19.Length + 2);
-                cur_pos = cur_pos + s19.Length + 2;
+                r = doc.Range(cur_pos, cur_pos + s19.Length + 3);
+                cur_pos = cur_pos + s19.Length + 3;
                 r.Font.Name = " Times New Roman ";
                 r.Font.Size = 14;
                 r.ParagraphFormat.Alignment =
@@ -567,52 +569,175 @@ namespace Dyplom1
                 r.Font.Size = 14;
                 r.ParagraphFormat.Alignment =
                 Word.WdParagraphAlignment.wdAlignParagraphLeft;
-                /*
+                
                string s21 = "Голова циклової випускової комісії спеціальності 121 «Інженерія програмного забезпечення»";
-               string s22 = "                   _________________________ (____Олена ВИСОЦЬКА___)";
-               string s23 = "                                                                 (підпис)" +
+                currentSelection.TypeText(s21);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s21.Length + 1);
+                cur_pos = cur_pos + s21.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s22 = "                   _________________________ (____";
+                currentSelection.TypeText(s22);
+
+                r = doc.Range(cur_pos, cur_pos + s22.Length);
+                cur_pos = cur_pos + s22.Length;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s23 = "Олена ВИСОЦЬКА_";
+                currentSelection.TypeText(s23);
+
+                r = doc.Range(cur_pos, cur_pos + s23.Length);
+                cur_pos = cur_pos + s23.Length;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Underline = Word.WdUnderline.wdUnderlineSingle;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s24 = "___)";
+                currentSelection.TypeText(s24);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s24.Length + 1);
+                cur_pos = cur_pos + s24.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s25 = "                                                                 (підпис)" +
                    "                                                   (прізвище та ініціали)";
+                currentSelection.TypeText(s25);
+                currentSelection.TypeParagraph();
+                currentSelection.TypeParagraph();
 
-               currentSelection.TypeText(s14);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s15);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s16);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s17);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s18);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s19);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s20);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s21);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s22);
-               currentSelection.TypeParagraph();
-               currentSelection.TypeText(s23);
-               currentSelection.InsertBreak(Word.WdBreakType.wdPageBreak);
+                r = doc.Range(cur_pos, cur_pos + s25.Length + 2);
+                cur_pos = cur_pos + s25.Length + 2;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 9;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
-               string s24 = "1.	Опис навчальної дисципліни";
-               currentSelection.TypeParagraph();
-               r = doc.Range(cur_pos+1, cur_pos+1);
-               */
-                //  Word.Table t = doc.Tables.Add(r, 4, 3);
-                //  t.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-                //  t.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                currentSelection.InsertBreak(Word.WdBreakType.wdPageBreak);
+                string s26 = "Опис навчальної дисципліни";
 
-                //  currentSelection.TypeText("TEST");
+                currentSelection.TypeText(s26);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s26.Length + 4);
+                cur_pos = cur_pos + s26.Length + 4;
+                r.ListFormat.ApplyNumberDefault();//ось тут починається з двох
+                r.Bold = 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos);
+                cur_pos = cur_pos;
+                Word.Table t = doc.Tables.Add(r, 3, 3);
+                t.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("Найменування показників");
+                currentSelection.MoveRight();
+
+                r = t.Cell(1, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("Спеціальність, ОПП, освітньо-професійний ступінь освіти");
+                currentSelection.MoveRight();
+
+                r = t.Cell(1, 2).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("Характеристика навчальної дисципліни");
+                currentSelection.Cells.Split(NumRows: 2, NumColumns: 1, MergeBeforeSplit: false);
+
+                r = t.Cell(1, 3).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.MoveRight();
+                currentSelection.MoveRight();
+                currentSelection.TypeText("денна форма навчання");
+                currentSelection.MoveRight();
+
+                r = t.Cell(2, 3).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.MoveRight();
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("Кількість кредитів – ");
+                currentSelection.MoveRight();
+
+                r = t.Cell(3, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string tab_s_1 = "Спеціальність:";
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText(tab_s_1);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 164, cur_pos + 164 + tab_s_1.Length + 1);
+                cur_pos = cur_pos + 164 + tab_s_1.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string tab_s_2 = "121  «Інженерія програмного забезпечення»";
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText(tab_s_2);
+                currentSelection.MoveRight();
+
+                r = doc.Range(cur_pos, cur_pos + tab_s_2.Length + 1);
+                cur_pos = cur_pos + tab_s_2.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("За вибором");
+                currentSelection.MoveRight();
+
+                r = t.Cell(3, 3).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 12;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                // currentSelection.TypeText("Спеціальність:");
+                //  currentSelection.MoveRight();
 
                 //  r = t.Cell(1, 1).Range;
                 /*  for (int row = 1; row <= 4; row++)
