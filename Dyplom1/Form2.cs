@@ -23,7 +23,7 @@ namespace Dyplom1
         string ind = "";
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            button14.PerformClick();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -281,8 +281,8 @@ namespace Dyplom1
                  "пн, Назва теми та Кількість годин");
                 }
             }
-                if (button17.Tag.Equals(1))
-            {
+            if (button17.Tag.Equals(1))
+                {
                 String[] fields = { "Number_Sequence", "Name_Class", "Number_Hours" };
                 String[] values = { textBox1.Text, "'" + textBox2.Text + "'", textBox3.Text };
                 if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text)
