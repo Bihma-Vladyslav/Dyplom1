@@ -35,6 +35,10 @@ namespace Dyplom1
         private void Form1_Load(object sender, EventArgs e)
         {
             db.selectall("Structure_Academic_Discipline", dataGridView1);
+            db.selectall1("Topics_Seminar_Classes", dataGridView2);
+            db.selectall1("Topics_Practical_Classes", dataGridView3);
+            db.selectall2("Topics_Laboratory_Works", dataGridView4);
+            db.selectall2("Topics_Independent_Works", dataGridView5);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1479,11 +1483,7 @@ namespace Dyplom1
             currentSelection.TypeParagraph();
 
             r = doc.Range(cur_pos, cur_pos + s60.Length + 1);
-            // r = doc.Range(3924, 3924 + s60.Length + 1); //помилка з діапазоном
             cur_pos = cur_pos + s60.Length + 1;
-            // r.ListFormat.ApplyNumberDefault();
-        // r = doc.Range(3594, 3630);
-        // cur_pos = 3594 + 36;
             r.Font.Name = " Times New Roman ";
             r.Font.Size = 14;
             r.Bold = 1;
@@ -1576,19 +1576,19 @@ namespace Dyplom1
 
                 String[] fields = { "Total_Hours", "Lecture_Hours", "Workshop_Hours", "Practical_Hours", "Laboratory_Hours", "IndepWorkStud_Hours" };
                 String[] values = new string[7];
-
+                int [] sumAll = new int [listBox2.Items.Count - 1];
                 for (int j = 1; j <= 6; j++)
                 {
 
                     string condition = "Num_Section = " + j;
                     string[] sumResult = db.sum("Structure_Academic_Discipline", fields, values, condition);
 
-
                     currentSelection.TypeText("Разом за розділом(змістовим модулем)" + j.ToString() + ":");
                     currentSelection.TypeParagraph();
 
                     for (int i = 1; i < listBox2.Items.Count; i++)
                     {
+                        
                         currentSelection.TypeText(listBox2.Items[i].ToString());
                         if (string.IsNullOrEmpty(sumResult[i - 1]))
                         {
@@ -1596,12 +1596,37 @@ namespace Dyplom1
                         }
                         else
                         {
+                            sumAll[i-1] += int.Parse(sumResult[i - 1]);
                             currentSelection.TypeText(sumResult[i - 1]);
                         }
                         currentSelection.TypeParagraph();
+
                     }
                 }
+                currentSelection.TypeText("Усього годин за всіма розділами :" );
+                currentSelection.TypeParagraph();
+                for (int i = 1; i < listBox2.Items.Count; i++)
+                { 
+                    currentSelection.TypeText(listBox2.Items[i].ToString());
+
+                    currentSelection.TypeText(sumAll[i-1].ToString());
+                    currentSelection.TypeParagraph();
+                }
+                string s61 = "5. Теми семінарських занять";
+                currentSelection.TypeText(s61);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 6106, cur_pos + 6117 + s61.Length + 1); //10397
+                cur_pos = cur_pos + 6117 + s61.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 20;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+
             }
+
 
             catch (Exception ex)
             {
