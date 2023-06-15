@@ -557,6 +557,7 @@ namespace Dyplom1
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(44, 29);
             this.dataGridView2.TabIndex = 70;
+            this.dataGridView2.Visible = false;
             // 
             // dataGridView3
             // 
@@ -565,6 +566,7 @@ namespace Dyplom1
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(44, 29);
             this.dataGridView3.TabIndex = 71;
+            this.dataGridView3.Visible = false;
             // 
             // dataGridView4
             // 
@@ -573,6 +575,7 @@ namespace Dyplom1
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(44, 29);
             this.dataGridView4.TabIndex = 72;
+            this.dataGridView4.Visible = false;
             // 
             // dataGridView5
             // 
@@ -581,6 +584,7 @@ namespace Dyplom1
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.Size = new System.Drawing.Size(44, 29);
             this.dataGridView5.TabIndex = 73;
+            this.dataGridView5.Visible = false;
             // 
             // Form1
             // 

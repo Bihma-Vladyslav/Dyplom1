@@ -645,7 +645,6 @@ namespace Dyplom1
 
                 r = doc.Range(cur_pos, cur_pos + s26.Length + 4);
                 cur_pos = cur_pos + s26.Length + 4;
-                // r.ListFormat.ApplyNumberDefault();//ось тут починається з двох
                 r.Bold = 1;
                 r.Font.Name = " Times New Roman ";
                 r.Font.Size = 14;
@@ -655,11 +654,8 @@ namespace Dyplom1
 
                 //THERE IS TABLE
                 //-------------------------------------------------
-                //Selection.SelectCell
-                //Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter
-                //Selection.Cells.VerticalAlignment = wdCellAlignVerticalCenter
 
-                r = doc.Range(cur_pos, cur_pos); //баг якщо змінювати розміщення тексту 2022/2023 рік
+                r = doc.Range(cur_pos, cur_pos); 
                 cur_pos = cur_pos;
 
 
@@ -864,7 +860,7 @@ namespace Dyplom1
                 currentSelection.TypeText("20__-й");
                 currentSelection.TypeParagraph();
                 currentSelection.TypeText("20__-й");
-                //
+                
                 currentSelection.SelectCell();
 
                 r = t.Cell(5, 3).Range;
@@ -944,8 +940,7 @@ namespace Dyplom1
                 string tab_s_6 = "кваліфікаційний рівень:";
 
                 currentSelection.TypeParagraph();
-                //  r = t.Cell(6, 2).Range;
-                r = doc.Range(cur_pos + 246, cur_pos + 246 + tab_s_5.Length + 1); //1793+30+1 = 1824, 1793+30+1+36+1 = 1861 
+                r = doc.Range(cur_pos + 246, cur_pos + 246 + tab_s_5.Length + 1); 
                 cur_pos = cur_pos + 246 + tab_s_5.Length + 1;
                 r.Font.Name = " Times New Roman ";
                 r.Bold = 0;
@@ -956,7 +951,7 @@ namespace Dyplom1
                 currentSelection.TypeText(tab_s_6);
                 currentSelection.TypeParagraph();
 
-                r = doc.Range(cur_pos, cur_pos + tab_s_6.Length + 1); //1793+30+1 = 1824, 1793+30+1+36+1 = 1861 
+                r = doc.Range(cur_pos, cur_pos + tab_s_6.Length + 1); 
                 cur_pos = cur_pos + tab_s_6.Length + 1;
                 r.Font.Name = " Times New Roman ";
                 r.Bold = 0;
@@ -972,7 +967,7 @@ namespace Dyplom1
                 currentSelection.TypeText(tab_s_7);
                 currentSelection.TypeParagraph();
 
-                r = doc.Range(cur_pos, cur_pos + tab_s_7.Length + 1); //1793+30+1 = 1824, 1793+30+1+36+1 = 1861 
+                r = doc.Range(cur_pos, cur_pos + tab_s_7.Length + 1); 
                 cur_pos = cur_pos + tab_s_7.Length + 1;
                 r.Font.Name = " Times New Roman ";
                 r.Bold = 1;
@@ -1496,8 +1491,6 @@ namespace Dyplom1
              Word.Table t1 = doc.Tables.Add(r, dataGridView1.RowCount, dataGridView1.ColumnCount);
              t1.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
              t1.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
-                //currentSelection.Tables(1).Columns(1).SetWidth ColumnWidth:= 21.05, RulerStyle:= _wdAdjustNone //потрібно випробувати
-                //currentSelection.Tables(1).Columns(2).SetWidth ColumnWidth:= 42.5, RulerStyle:= _wdAdjustNone //потрібно випробувати
 
                 for(int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
@@ -1612,19 +1605,583 @@ namespace Dyplom1
                     currentSelection.TypeText(sumAll[i-1].ToString());
                     currentSelection.TypeParagraph();
                 }
+
+                r = doc.Range(cur_pos + 6106, cur_pos + 6117 + 28); 
+                cur_pos = cur_pos + 6117 + 28;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 111); 
+                cur_pos = cur_pos + 111;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 39); 
+                cur_pos = cur_pos + 39;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 113);
+                cur_pos = cur_pos + 113;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 39);
+                cur_pos = cur_pos + 39;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 114);
+                cur_pos = cur_pos + 114;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 39);
+                cur_pos = cur_pos + 39;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 110);
+                cur_pos = cur_pos + 110;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 39);
+                cur_pos = cur_pos + 39;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 110);
+                cur_pos = cur_pos + 110;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 39);
+                cur_pos = cur_pos + 39;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 110);
+                cur_pos = cur_pos + 110;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+
+                r = doc.Range(cur_pos, cur_pos + 34);
+                cur_pos = cur_pos + 34;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos + 115);
+                cur_pos = cur_pos + 115;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
                 string s61 = "5. Теми семінарських занять";
                 currentSelection.TypeText(s61);
                 currentSelection.TypeParagraph();
 
-                r = doc.Range(cur_pos + 6106, cur_pos + 6117 + s61.Length + 1); //10397
-                cur_pos = cur_pos + 6117 + s61.Length + 1;
+                r = doc.Range(cur_pos, cur_pos + s61.Length + 1);
+                cur_pos = cur_pos + s61.Length + 1;
                 r.Font.Name = " Times New Roman ";
-                r.Font.Size = 20;
+                r.Font.Size = 14;
                 r.Bold = 1;
                 r.ParagraphFormat.Alignment =
                 Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
 
+                r = doc.Range(cur_pos, cur_pos);
+
+                Word.Table t2 = doc.Tables.Add(r, dataGridView2.RowCount, dataGridView2.ColumnCount);
+                t2.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t2.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                {
+                    currentSelection.TypeText(dataGridView2.Columns[j].HeaderText);
+                    currentSelection.MoveRight();
+                }
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                    {
+                        if (dataGridView2.Rows[i].Cells[j].Value != null)
+                        {
+                            currentSelection.TypeText(dataGridView2.Rows[i].Cells[j].Value.ToString());
+                        }
+                        currentSelection.MoveRight();
+                    }
+                    currentSelection.TypeParagraph();
+                }
+                t2.Columns[1].Width = 35f;
+                t2.Columns[2].Width = 270f;
+                t2.Columns[3].Width = 90f;
+
+                t2.Cell(1, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t2.Cell(1, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t2.Cell(1, 2).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t2.Cell(1, 2).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t2.Cell(1, 3).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                t2.Cell(1, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+
+                t2.Cell(1, 1).Range.Font.Size = 14;
+                t2.Cell(1, 1).Range.Font.Name = "Times New Roman";
+                t2.Cell(1, 2).Range.Font.Size = 14;
+                t2.Cell(1, 2).Range.Font.Name = "Times New Roman";
+                t2.Cell(1, 3).Range.Font.Size = 14;
+                t2.Cell(1, 3).Range.Font.Name = "Times New Roman";
+
+                t2.Cell(2, 1).Range.Font.Size = 14;
+                t2.Cell(2, 1).Range.Font.Name = "Times New Roman";
+                t2.Cell(2, 2).Range.Font.Size = 14;
+                t2.Cell(2, 2).Range.Font.Name = "Times New Roman";
+                t2.Cell(2, 3).Range.Font.Size = 14;
+                t2.Cell(2, 3).Range.Font.Name = "Times New Roman";
+
+                t2.Cell(3, 1).Range.Font.Size = 14;
+                t2.Cell(3, 1).Range.Font.Name = "Times New Roman";
+                t2.Cell(3, 2).Range.Font.Size = 14;
+                t2.Cell(3, 2).Range.Font.Name = "Times New Roman";
+                t2.Cell(3, 3).Range.Font.Size = 14;
+                t2.Cell(3, 3).Range.Font.Name = "Times New Roman";
+
+                t2.Cell(4, 1).Range.Font.Size = 14;
+                t2.Cell(4, 1).Range.Font.Name = "Times New Roman";
+                t2.Cell(4, 2).Range.Font.Size = 14;
+                t2.Cell(4, 2).Range.Font.Name = "Times New Roman";
+                t2.Cell(4, 3).Range.Font.Size = 14;
+                t2.Cell(4, 3).Range.Font.Name = "Times New Roman";
+
+                string s62 = "6. Теми практичних занять";
+                currentSelection.TypeText(s62);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 50, cur_pos + 76);
+                cur_pos = cur_pos + 76;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos);
+
+                Word.Table t3 = doc.Tables.Add(r, dataGridView3.RowCount, dataGridView3.ColumnCount);
+                t3.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t3.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                for (int j = 0; j < dataGridView3.ColumnCount; j++)
+                {
+                    currentSelection.TypeText(dataGridView3.Columns[j].HeaderText);
+                    currentSelection.MoveRight();
+                }
+                for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView3.ColumnCount; j++)
+                    {
+                        if (dataGridView3.Rows[i].Cells[j].Value != null)
+                        {
+                            currentSelection.TypeText(dataGridView3.Rows[i].Cells[j].Value.ToString());
+                        }
+                        currentSelection.MoveRight();
+                    }
+                    currentSelection.TypeParagraph();
+                }
+                t3.Columns[1].Width = 35f;
+                t3.Columns[2].Width = 270f;
+                t3.Columns[3].Width = 90f;
+
+                t3.Cell(1, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t3.Cell(1, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t3.Cell(1, 2).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t3.Cell(1, 2).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t3.Cell(1, 3).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                t3.Cell(1, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+
+                t3.Cell(1, 1).Range.Font.Size = 14;
+                t3.Cell(1, 1).Range.Font.Name = "Times New Roman";
+                t3.Cell(1, 2).Range.Font.Size = 14;
+                t3.Cell(1, 2).Range.Font.Name = "Times New Roman";
+                t3.Cell(1, 3).Range.Font.Size = 14;
+                t3.Cell(1, 3).Range.Font.Name = "Times New Roman";
+
+                t3.Cell(2, 1).Range.Font.Size = 14;
+                t3.Cell(2, 1).Range.Font.Name = "Times New Roman";
+                t3.Cell(2, 2).Range.Font.Size = 14;
+                t3.Cell(2, 2).Range.Font.Name = "Times New Roman";
+                t3.Cell(2, 3).Range.Font.Size = 14;
+                t3.Cell(2, 3).Range.Font.Name = "Times New Roman";
+
+                t3.Cell(3, 1).Range.Font.Size = 14;
+                t3.Cell(3, 1).Range.Font.Name = "Times New Roman";
+                t3.Cell(3, 2).Range.Font.Size = 14;
+                t3.Cell(3, 2).Range.Font.Name = "Times New Roman";
+                t3.Cell(3, 3).Range.Font.Size = 14;
+                t3.Cell(3, 3).Range.Font.Name = "Times New Roman";
+
+                t3.Cell(4, 1).Range.Font.Size = 14;
+                t3.Cell(4, 1).Range.Font.Name = "Times New Roman";
+                t3.Cell(4, 2).Range.Font.Size = 14;
+                t3.Cell(4, 2).Range.Font.Name = "Times New Roman";
+                t3.Cell(4, 3).Range.Font.Size = 14;
+                t3.Cell(4, 3).Range.Font.Name = "Times New Roman";
+
+                string s63 = "7. Теми лабораторних робіт";
+                currentSelection.TypeText(s63);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 50, cur_pos + 77);
+                cur_pos = cur_pos + 77;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos);
+
+                Word.Table t4 = doc.Tables.Add(r, dataGridView4.RowCount, dataGridView4.ColumnCount);
+                t4.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t4.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                for (int j = 0; j < dataGridView4.ColumnCount; j++)
+                {
+                    currentSelection.TypeText(dataGridView4.Columns[j].HeaderText);
+                    currentSelection.MoveRight();
+                }
+                for (int i = 0; i < dataGridView4.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView4.ColumnCount; j++)
+                    {
+                        if (dataGridView4.Rows[i].Cells[j].Value != null)
+                        {
+                            currentSelection.TypeText(dataGridView4.Rows[i].Cells[j].Value.ToString());
+                        }
+                        currentSelection.MoveRight();
+                    }
+                    currentSelection.TypeParagraph();
+                }
+                t4.Columns[1].Width = 35f;
+                t4.Columns[2].Width = 370f;
+                t4.Columns[3].Width = 90f;
+
+                t4.Cell(1, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t4.Cell(1, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t4.Cell(1, 2).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t4.Cell(1, 2).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t4.Cell(1, 3).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                t4.Cell(1, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                t4.Cell(1, 1).Range.Font.Size = 12;
+                t4.Cell(1, 1).Range.Font.Name = "Times New Roman";
+                t4.Cell(1, 2).Range.Font.Size = 12;
+                t4.Cell(1, 2).Range.Font.Name = "Times New Roman";
+                t4.Cell(1, 3).Range.Font.Size = 12;
+                t4.Cell(1, 3).Range.Font.Name = "Times New Roman";
+
+                string s64 = "8. Самостійна робота";
+                currentSelection.TypeText(s64);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 1087, cur_pos + 1087 + s64.Length + 1);
+                cur_pos = cur_pos + 1087 + s64.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = doc.Range(cur_pos, cur_pos);
+
+                Word.Table t5 = doc.Tables.Add(r, dataGridView5.RowCount, dataGridView5.ColumnCount);
+                t5.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t5.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                for (int j = 0; j < dataGridView5.ColumnCount; j++)
+                {
+                    currentSelection.TypeText(dataGridView5.Columns[j].HeaderText);
+                    currentSelection.MoveRight();
+                }
+                for (int i = 0; i < dataGridView5.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView5.ColumnCount; j++)
+                    {
+                        if (dataGridView5.Rows[i].Cells[j].Value != null)
+                        {
+                            currentSelection.TypeText(dataGridView5.Rows[i].Cells[j].Value.ToString());
+                        }
+                        currentSelection.MoveRight();
+                    }
+                    currentSelection.TypeParagraph();
+                }
+                t5.Columns[1].Width = 35f;
+                t5.Columns[2].Width = 370f;
+                t5.Columns[3].Width = 90f;
+
+                t5.Cell(1, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t5.Cell(1, 1).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t5.Cell(1, 2).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+                t5.Cell(1, 2).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                t5.Cell(1, 3).Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                t5.Cell(1, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+
+                t5.Cell(1, 1).Range.Font.Size = 12;
+                t5.Cell(1, 1).Range.Font.Name = "Times New Roman";
+                t5.Cell(1, 2).Range.Font.Size = 12;
+                t5.Cell(1, 2).Range.Font.Name = "Times New Roman";
+                t5.Cell(1, 3).Range.Font.Size = 12;
+                t5.Cell(1, 3).Range.Font.Name = "Times New Roman";
+                
+                string s65 = "9. Методи навчання: пояснення, бесіда, демонстраційний, ілюстративний, мозковий штурм.";
+                currentSelection.TypeText(s65);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 1236, cur_pos + 1323);
+                cur_pos = cur_pos + 1323;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s66 = "10. Методи контролю: усні, письмові (тестові), графічні, практичні та лабораторні роботи.";
+                currentSelection.TypeText(s66);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s66.Length + 1);
+                cur_pos = cur_pos + s66.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s67 = "11. Методичне забезпечення";
+                currentSelection.TypeText(s67);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s67.Length + 1);
+                cur_pos = cur_pos + s67.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                r = doc.Range(cur_pos, cur_pos);
+
+                Word.Table t6 = doc.Tables.Add(r, 7, 1);
+                t6.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                t6.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+
+                currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1f);
+                currentSelection.TypeText("1. Навчальна програма  навчальної дисципліни.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("2. Робоча програма навчальної дисципліни.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("3. Конспект лекцій.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("4. Інструктивно-методичні матеріали до лабораторних  робіт.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("5. Методичні матеріали, що забезпечують самостійну роботу здобувачів вищої передвищої освіти.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("6. Комплексна контрольна робота.");
+                currentSelection.MoveDown();
+                currentSelection.TypeText("7. Інше.");
+                currentSelection.MoveDown();
+                currentSelection.TypeParagraph();
+
+                r = t6.Cell(1, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(2, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(3, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(4, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(5, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(6, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                r = t6.Cell(7, 1).Range;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                string s68 = "12. Рекомендована література";
+                currentSelection.TypeText(s68);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos + 311, cur_pos + 341);
+                cur_pos = cur_pos + 341;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s69 = "Основна";
+                currentSelection.TypeText(s69);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s69.Length);
+                cur_pos = cur_pos + s69.Length;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s70 = "1. текст.";
+                currentSelection.TypeText(s70);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s70.Length + 1);
+                cur_pos = cur_pos + s70.Length + 1; 
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s71 = "2. текст.";
+                currentSelection.TypeText(s71);
+                currentSelection.TypeParagraph();
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s71.Length + 2);
+                cur_pos = cur_pos + s71.Length + 2;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s72 = "Допоміжна";
+                currentSelection.TypeText(s72);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s72.Length + 1);
+                cur_pos = cur_pos + s72.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s73 = "1. текст.";
+                currentSelection.TypeText(s73);
+                currentSelection.TypeParagraph();
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s73.Length + 2);
+                cur_pos = cur_pos + s73.Length + 2;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
+
+                string s74 = "13. Інформаційні ресурси";
+                currentSelection.TypeText(s74);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s74.Length + 1);
+                cur_pos = cur_pos + s74.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 1;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphCenter;
+
+                string s75 = "1. текст.";
+                currentSelection.TypeText(s75);
+                currentSelection.TypeParagraph();
+
+                r = doc.Range(cur_pos, cur_pos + s75.Length + 1);
+                cur_pos = cur_pos + s75.Length + 1;
+                r.Font.Name = " Times New Roman ";
+                r.Font.Size = 14;
+                r.Bold = 0;
+                r.ParagraphFormat.Alignment =
+                Word.WdParagraphAlignment.wdAlignParagraphJustify;
             }
 
 
