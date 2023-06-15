@@ -14,12 +14,17 @@ namespace Dyplom1
     {
         SQLiteConnection connection;
         SQLiteCommand command;
-        String conStr = @"URI=file:D:\\sqllite\\Diplom\\Diplom.db";
+        String conStr;
         public DBManager()
         {
+            conStr = @"URI=file:" + System.AppDomain.CurrentDomain.BaseDirectory + "Diplom.db";
             connection = new SQLiteConnection();
             command = new SQLiteCommand();
             command.Connection = connection;
+            if(!CheckIfTableExists(conStr,"Structure_Academic_Discipline"))
+            {
+                CreateTable(conStr);
+            }
         }
         public void connectTo(String pconStr)
         {
@@ -30,6 +35,57 @@ namespace Dyplom1
         {
             connection.ConnectionString = conStr;   
         }
+
+        static bool CheckIfTableExists(string connectionString, string tableName)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = $"SELECT name FROM sqlite_master WHERE type='table' AND name='{tableName}'";
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    return reader.HasRows;
+                }
+            }
+        }
+        static void CreateTable(string connectionString)
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = $"CREATE TABLE \"Structure_Academic_Discipline\" ( \"Num_Section\"	INTEGER NOT NULL, \"Num_Class\"	INTEGER NOT NULL, \"Name_Section\"	TEXT NOT NULL, \"Total_Hours\"	NUMERIC NOT NULL, \"Lecture_Hours\"	INTEGER, \"Workshop_Hours\"	INTEGER, \"Practical_Hours\"	INTEGER, \"Laboratory_Hours\"	TEXT, \"IndepWorkStud_Hours\"	TEXT, \"Recommended_Books\"	TEXT, \"Forms_Means_Con\"	TEXT, \"Index\"	INTEGER NOT NULL, PRIMARY KEY(\"Index\" AUTOINCREMENT) );";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"CREATE TABLE \"Topics_Seminar_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"CREATE TABLE \"Topics_Practical_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"CREATE TABLE \"Topics_Laboratory_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"CREATE TABLE \"Topics_Independent_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
+
+                command.ExecuteNonQuery();
+
+                command.CommandText = $"CREATE UNIQUE INDEX \"Index_Section_Class\" ON \"Structure_Academic_Discipline\" ( \"Num_Section\", \"Num_Class\" );";
+
+                command.ExecuteNonQuery();
+            }
+        }
+        
 
         public void fillgrid(SQLiteDataReader datareader, DataGridView datagrid)
         {

@@ -359,8 +359,6 @@ namespace Dyplom1
 
         }
 
-        //WORD DOCUMENT
-        //---------------------------------------------------------------------------------------------------------------------
         private void button8_Click_1(object sender, EventArgs e)
         {
             try
@@ -382,7 +380,6 @@ namespace Dyplom1
                 int cur_pos = label1.Text.Length + label2.Text.Length + label3.Text.Length + label4.Text.Length;
 
                 r = doc.Range(0, cur_pos + 4);
-                // r.Bold = 1;
                 r.Font.Name = " Times New Roman ";
                 r.Font.Size = 14;
                 r.ParagraphFormat.Alignment =
@@ -651,14 +648,8 @@ namespace Dyplom1
                 r.ParagraphFormat.Alignment =
                 Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
-
-                //THERE IS TABLE
-                //-------------------------------------------------
-
                 r = doc.Range(cur_pos, cur_pos); 
                 cur_pos = cur_pos;
-
-
 
                 Word.Table t = doc.Tables.Add(r, 3, 3);
                 t.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
@@ -1096,8 +1087,6 @@ namespace Dyplom1
                 currentSelection.MoveDown();
                 currentSelection.TypeParagraph();
 
-             //TABLES ENDS
-             //-------------------------------
              currentSelection.ParagraphFormat.LineSpacing = word.LinesToPoints(1.15f);
 
              string s27 = "Примітка.";
@@ -1143,7 +1132,6 @@ namespace Dyplom1
 
              r = doc.Range(cur_pos, cur_pos + s30.Length + 1);
              cur_pos = cur_pos + s30.Length + 1;
-            // r.ListFormat.ApplyNumberDefault();
              r.Font.Name = " Times New Roman ";
              r.Font.Size = 14;
              r.Bold = 1;
@@ -1175,7 +1163,6 @@ namespace Dyplom1
 
              string s33 = "Завдання ";
              currentSelection.TypeText(s33);
-             //currentSelection.PageSetup.LeftMargin = word.CentimetersToPoints(2.5f);
              currentSelection.ParagraphFormat.FirstLineIndent = word.CentimetersToPoints(1.25f);
              r = doc.Range(cur_pos, cur_pos + s33.Length);
              cur_pos = cur_pos + s33.Length;
@@ -1195,8 +1182,6 @@ namespace Dyplom1
              r.Font.Size = 14;
              r.ParagraphFormat.Alignment =
              Word.WdParagraphAlignment.wdAlignParagraphJustify;
-
-             //currentSelection.ParagraphFormat.LineSpacing = word.CentimetersToPoints(1f);
 
              string s35 = "Головною задачею дисципліни є:";
              currentSelection.TypeText(s35);
@@ -1466,7 +1451,6 @@ namespace Dyplom1
 
             r = doc.Range(cur_pos, cur_pos + s54.Length + s55.Length + s56.Length + s57.Length + s58.Length + s59.Length + 7);
             cur_pos = cur_pos + s54.Length + s55.Length + s56.Length + s57.Length + s58.Length + s59.Length + 7;
-           // r.ListFormat.ApplyNumberDefault();
             r.Font.Name = " Times New Roman ";
             r.Font.Size = 14;
             r.Bold = 1;
@@ -2192,7 +2176,6 @@ namespace Dyplom1
             }
             finally
             {
-                // word.Quit();
                 word = null;
                 doc = null;
             }

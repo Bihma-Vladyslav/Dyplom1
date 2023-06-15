@@ -9,7 +9,6 @@ D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\bin\Debug
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\bin\Debug\EntityFramework.xml
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\bin\Debug\EntityFramework.SqlServer.xml
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\bin\Debug\System.Data.SQLite.xml
-D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.csproj.AssemblyReference.cache
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.Form1.resources
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.Form2.resources
 D:\Visual Studio расположение\source\repos\Dyplom1\Dyplom1\obj\Debug\Dyplom1.Properties.Resources.resources
