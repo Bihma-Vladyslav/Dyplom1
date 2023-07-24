@@ -60,27 +60,27 @@ namespace Dyplom1
 
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = $"CREATE TABLE \"Structure_Academic_Discipline\" ( \"Num_Section\"	INTEGER NOT NULL, \"Num_Class\"	INTEGER NOT NULL, \"Name_Section\"	TEXT NOT NULL, \"Total_Hours\"	NUMERIC NOT NULL, \"Lecture_Hours\"	INTEGER, \"Workshop_Hours\"	INTEGER, \"Practical_Hours\"	INTEGER, \"Laboratory_Hours\"	TEXT, \"IndepWorkStud_Hours\"	TEXT, \"Recommended_Books\"	TEXT, \"Forms_Means_Con\"	TEXT, \"Index\"	INTEGER NOT NULL, PRIMARY KEY(\"Index\" AUTOINCREMENT) );";
+                command.CommandText = $"CREATE TABLE IF NOT EXISTS \"Structure_Academic_Discipline\" ( \"Num_Section\"	INTEGER NOT NULL, \"Num_Class\"	INTEGER NOT NULL, \"Name_Section\"	TEXT NOT NULL, \"Total_Hours\"	NUMERIC NOT NULL, \"Lecture_Hours\"	INTEGER, \"Workshop_Hours\"	INTEGER, \"Practical_Hours\"	INTEGER, \"Laboratory_Hours\"	TEXT, \"IndepWorkStud_Hours\"	TEXT, \"Recommended_Books\"	TEXT, \"Forms_Means_Con\"	TEXT, \"Index\"	INTEGER NOT NULL, PRIMARY KEY(\"Index\" AUTOINCREMENT) );";
 
                 command.ExecuteNonQuery();
 
-                command.CommandText = $"CREATE TABLE \"Topics_Seminar_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
+                command.CommandText = $"CREATE TABLE IF NOT EXISTS \"Topics_Seminar_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
 
                 command.ExecuteNonQuery();
 
-                command.CommandText = $"CREATE TABLE \"Topics_Practical_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
+                command.CommandText = $"CREATE TABLE IF NOT EXISTS \"Topics_Practical_Classes\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Topic_Name\"	TEXT, \"Number_Hours\"	INTEGER, PRIMARY KEY(\"Number_Sequence\") );";
 
                 command.ExecuteNonQuery();
 
-                command.CommandText = $"CREATE TABLE \"Topics_Laboratory_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
+                command.CommandText = $"CREATE TABLE IF NOT EXISTS \"Topics_Laboratory_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
 
                 command.ExecuteNonQuery();
 
-                command.CommandText = $"CREATE TABLE \"Topics_Independent_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
+                command.CommandText = $"CREATE TABLE IF NOT EXISTS \"Topics_Independent_Works\" ( \"Number_Sequence\"	INTEGER NOT NULL UNIQUE, \"Name_Class\"	TEXT NOT NULL, \"Number_Hours\"	INTEGER NOT NULL, PRIMARY KEY(\"Number_Sequence\") );";
 
                 command.ExecuteNonQuery();
 
-                command.CommandText = $"CREATE UNIQUE INDEX \"Index_Section_Class\" ON \"Structure_Academic_Discipline\" ( \"Num_Section\", \"Num_Class\" );";
+                command.CommandText = $"CREATE UNIQUE INDEX IF NOT EXISTS \"Index_Section_Class\" ON \"Structure_Academic_Discipline\" ( \"Num_Section\", \"Num_Class\" );";
 
                 command.ExecuteNonQuery();
             }
